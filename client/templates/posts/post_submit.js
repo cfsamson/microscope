@@ -6,8 +6,17 @@ Template.postSubmit.events({
             url: $(e.target).find('[name=url]').val(),
             title: $(e.target).find('[name=title]').val()
         };
+        
+        Meteor.call('postSubmit', post, function (err, result) {
+            if(err)
+                return alert(err.reason);
 
-        post._id = Posts.insert(post);
-        Router.go('postPage', post);
+            if(result.postExists){
+                alert('This link has already been posted');
+            }
+
+            Router.go('postPage', {_id: result._id});
+        });
+
     }
-})
+});
