@@ -7,7 +7,7 @@ Template.postSubmit.events({
             title: $(e.target).find('[name=title]').val()
         };
         
-        Meteor.call('postSubmit', post, function (err, result) {
+        Meteor.call('postInsert', post, function (err, result) {
             if(err)
                 return alert(err.reason);
 
@@ -18,7 +18,7 @@ Template.postSubmit.events({
 
         });
 
-        Router.go('postPage', {_id: result._id});
+        Router.go('postsList');
 
     }
 });
