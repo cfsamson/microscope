@@ -52,7 +52,7 @@ function submitFormEvent(e) {
         if(err){
             throwError(err.reason);
         } else {
-            Router.go('postPage', {_id: currentPostId._id});
+            Router.go('postPage', {_id: currentPostId});
         }
     })
 }
