@@ -6,5 +6,8 @@ Template.postItem.helpers({
    },
     'ownPost': function () {
         return this.userId === Meteor.userId();
+    },
+    commentsCount: function () {
+        Comments.find({_id: this._id}).count();
     }
 });
