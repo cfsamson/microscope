@@ -1,4 +1,4 @@
-<template name="notofications">
+<template name="notifications">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         Notifications
         {{#if notificationsCount}}
@@ -9,7 +9,7 @@
 
     <ul class="notification dropdown-menu">
         {{#if notificationsCount}}
-            {{#each notification}}
+            {{#each notifications}}
                 {{> notificationItem}}
             {{/each}}
         {{else}}

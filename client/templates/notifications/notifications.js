@@ -1,4 +1,4 @@
-Template.nofifications.helpers({
+Template.notifications.helpers({
     notifications: function () {
         return Notifications.find({userId: Meteor.userId(), read: false});
     },
@@ -8,13 +8,13 @@ Template.nofifications.helpers({
 });
 
 Template.notificationItem.helpers({
-    notificationsPostPath: function () {
+    notificationPostPath: function () {
         return Router.routes.postPage.path({_id: this.postId});
     }
 });
 
 Template.notificationItem.events({
-   'a click': function () {
+   'click a': function () {
        Notifications.update(this._id, {$set: {read: true}});
    }
 });
